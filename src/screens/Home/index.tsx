@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import { Container } from './styles';
+import { Container, Title } from './styles';
 export function Home() {
     return (
         <Container>
-            <Text>ola mundo</Text>
+            <Title>ola mundo</Title>
         </Container>
     )
 }
