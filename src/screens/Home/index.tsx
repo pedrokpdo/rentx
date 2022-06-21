@@ -1,11 +1,21 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { StatusBar } from 'react-native';
+import { Container, Header, HeaderContent, TotalCars } from './styles';
+import Logo from '../../assets/logo.svg'
+import { RFValue } from 'react-native-responsive-fontsize';
 
-import { Container, Title } from './styles';
 export function Home() {
     return (
         <Container>
-            <Title>ola mundo</Title>
+            <StatusBar barStyle='light-content' translucent backgroundColor='transparent' />
+            <Header>
+                <HeaderContent>
+                    <Logo width={RFValue(108)} height={RFValue(12)} />
+                    <TotalCars>
+                        Total de 12 carros
+                    </TotalCars>
+                </HeaderContent>
+            </Header>
         </Container>
     )
 }
