@@ -31,7 +31,7 @@ export const HeaderContent = styled.View`
 
 export const CarList = styled(FlatList).attrs({
     contentContainerStyle: {
-        padding: 24,
+        padding: 16,
     },
     showsVerticalScrollIndicator: false
 })`

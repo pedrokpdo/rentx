@@ -6,6 +6,7 @@ import { useFonts, Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/
 import { Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold } from '@expo-google-fonts/archivo'
 import AppLoading from 'expo-app-loading';
 import theme from './src/styles/theme';
+import { CarDetails } from './src/screens/CarDetails';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,7 +19,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      <CarDetails/>
     </ThemeProvider>
   );
 }

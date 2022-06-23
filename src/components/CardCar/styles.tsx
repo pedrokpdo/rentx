@@ -48,6 +48,7 @@ export const Price = styled.Text`
 `
 export const Type = styled.View``
 export const CardImage = styled.Image`
-    width: 167px;
+    width: 140px;
     height: 85px;
+    margin-left: 16px;
 `
