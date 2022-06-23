@@ -10,7 +10,8 @@ import ExchangeSvg from '../../assets/exchange.svg'
 import PeopleSvg from '../../assets/people.svg'
 
 
-import { CarImages, Container, Content, Header, Details, Description, Brand, Name, Rent, Period, Price, About, Acessories } from './styles';
+import { CarImages, Container, Content, Header, Details, Description, Brand, Name, Rent, Period, Price, About, Acessories, Footer } from './styles';
+import { Button } from '../../components/Button';
 export function CarDetails() {
     return (
         <Container>
@@ -44,6 +45,9 @@ export function CarDetails() {
                     na praça real Maestrand de Servilla. é um belissimo carro pra quem gosta de acelerar
                 </About>
             </Content>
+            <Footer>
+                <Button title='botao' />
+            </Footer>
         </Container>
     )
 }
