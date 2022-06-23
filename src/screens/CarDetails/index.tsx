@@ -1,9 +1,16 @@
 import React from 'react';
+import { Acessory } from '../../components/Acessory';
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
+import SpeedSvg from '../../assets/speed.svg'
+import AccelerationSvg from '../../assets/acceleration.svg'
+import ForceSvg from '../../assets/force.svg'
+import GasolineSvg from '../../assets/gasoline.svg'
+import ExchangeSvg from '../../assets/exchange.svg'
+import PeopleSvg from '../../assets/people.svg'
 
 
-import { CarImages, Container, Content, Header, Details, Description, Brand, Name, Rent, Period, Price, About } from './styles';
+import { CarImages, Container, Content, Header, Details, Description, Brand, Name, Rent, Period, Price, About, Acessories } from './styles';
 export function CarDetails() {
     return (
         <Container>
@@ -24,6 +31,14 @@ export function CarDetails() {
                         <Price>R$ 580</Price>
                     </Rent>
                 </Details>
+                <Acessories>
+                    <Acessory name='380Km/h' icon={SpeedSvg}/>
+                    <Acessory name='3.2s' icon={AccelerationSvg}/>
+                    <Acessory name='800 HP' icon={ForceSvg}/>
+                    <Acessory name='Gasolina' icon={GasolineSvg}/>
+                    <Acessory name='Auto' icon={ExchangeSvg}/>
+                    <Acessory name='2 Pessoas' icon={PeopleSvg}/>
+                </Acessories>
                 <About>
                     Este automóvel desportivo. surgiu do lendario touro de lide indultado
                     na praça real Maestrand de Servilla. é um belissimo carro pra quem gosta de acelerar
