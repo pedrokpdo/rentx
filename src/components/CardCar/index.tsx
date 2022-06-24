@@ -1,5 +1,6 @@
 import React from 'react';
 import GasolineSvg from '../../assets/gasoline.svg'
+import { getAccessory } from '../../utils/getAccessory';
 import { About, Brand, CardImage, Container, Details, Name, Period, Price, Rent, Type } from './styles';
 
 interface CardData {
@@ -17,6 +18,7 @@ interface Props {
 }
 
 export function CardCar({data, onPress}:any) {
+  const MotorIcon = getAccessory(data.fuel_type)
   return (
     <Container onPress={onPress}>
       <Details>
@@ -28,7 +30,7 @@ export function CardCar({data, onPress}:any) {
             <Price>{`R$ ${data.rent.price}`}</Price>
           </Rent>
           <Type>
-            <GasolineSvg />
+            <MotorIcon />
           </Type>
 
         </About>

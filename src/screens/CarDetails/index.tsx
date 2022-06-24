@@ -3,17 +3,12 @@ import { Acessory } from '../../components/Acessory';
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
 import SpeedSvg from '../../assets/speed.svg'
-import AccelerationSvg from '../../assets/acceleration.svg'
-import ForceSvg from '../../assets/force.svg'
-import GasolineSvg from '../../assets/gasoline.svg'
-import ExchangeSvg from '../../assets/exchange.svg'
-import PeopleSvg from '../../assets/people.svg'
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { getAccessory } from '../../utils/getAccessory'
 
 
 import { CarImages, Container, Content, Header, Details, Description, Brand, Name, Rent, Period, Price, About, Acessories, Footer } from './styles';
 import { Button } from '../../components/Button';
-
 
 
 export function CarDetails() {
@@ -49,7 +44,7 @@ export function CarDetails() {
                 <Acessories>
                     {
                     car.accessories.map(accessory => (
-                        <Acessory name={accessory.name} icon={SpeedSvg} key={accessory.type}/>
+                        <Acessory name={accessory.name} icon={getAccessory(accessory.type)} key={accessory.type}/>
                     ))
                     }
                 </Acessories>
