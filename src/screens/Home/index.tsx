@@ -24,8 +24,8 @@ export function Home() {
         fetchCars()
     }, [])
 
-    function handleCarDetails(): any {
-        navigation.navigate('CarDetails')
+    function handleCarDetails(car): any {
+        navigation.navigate('CarDetails', {car})
     }
 
     return (
@@ -44,7 +44,7 @@ export function Home() {
                     data={cars}
                     keyExtractor={item => (item.id)}
                     renderItem={({ item }) =>
-                        <CardCar data={item} onPress={handleCarDetails} />
+                        <CardCar data={item} onPress={() => handleCarDetails(item)} />
                     }
 
                 />

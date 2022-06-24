@@ -9,11 +9,11 @@ interface Props extends BorderlessButtonProps {
     color?: string
 }
 
-export function BackButton({color, ...rest}:Props) {
+export function BackButton({color, onPress}:Props) {
     const theme = useTheme()
     return (
         
-        <Container>
+        <Container onPress={onPress}>
             <MaterialIcons name='chevron-left' size={24} color={color ? color: theme.colors.text}/>
         </Container>
     )
