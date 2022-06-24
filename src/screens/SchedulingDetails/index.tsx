@@ -13,9 +13,14 @@ import { useTheme } from 'styled-components'
 import { CarImages, Container, Content, Header, Details, Description, Brand, Name, Rent, Period, Price, Acessories, Footer, RentalPeriod, CalendarIcon, DateInfo, DateTitle, DateValue, RentalPrice, RentalPriceDetails, RentalPriceLabel, RentalPriceQuota, RentalPriceTotal } from './styles';
 import { Button } from '../../components/Button';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 
 export function SchedulingDetails() {
+    const navigation = useNavigation();
+    function handleConfirmRental() {
+        navigation.navigate('SchedulingComplete')
+    }
     const theme = useTheme()
     return (
         <Container>
@@ -66,7 +71,7 @@ export function SchedulingDetails() {
                 </RentalPrice>
             </Content>
             <Footer>
-                <Button title='botao' />
+                <Button title='botao' onPress={handleConfirmRental}/>
             </Footer>
         </Container>
     )

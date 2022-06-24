@@ -8,11 +8,17 @@ import ForceSvg from '../../assets/force.svg'
 import GasolineSvg from '../../assets/gasoline.svg'
 import ExchangeSvg from '../../assets/exchange.svg'
 import PeopleSvg from '../../assets/people.svg'
+import { useNavigation } from '@react-navigation/native';
 
 
 import { CarImages, Container, Content, Header, Details, Description, Brand, Name, Rent, Period, Price, About, Acessories, Footer } from './styles';
 import { Button } from '../../components/Button';
 export function CarDetails() {
+    const navigation = useNavigation()
+
+    function handleConfirmRental() {
+        navigation.navigate('Scheduling')
+    }
     return (
         <Container>
             <Header>
@@ -46,7 +52,7 @@ export function CarDetails() {
                 </About>
             </Content>
             <Footer>
-                <Button title='botao' />
+                <Button title='botao' onPress={handleConfirmRental}/>
             </Footer>
         </Container>
     )

@@ -13,12 +13,12 @@ interface CardData {
 }
 
 interface Props {
-  data: CardData
+  data: CardData;
 }
 
-export function CardCar({data}:Props) {
+export function CardCar({data, handleCarDetails}:any) {
   return (
-    <Container>
+    <Container onPress={handleCarDetails}>
       <Details>
         <Brand>{data.brand}</Brand>
         <Name>{data.name}</Name>
