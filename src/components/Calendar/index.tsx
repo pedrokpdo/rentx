@@ -26,9 +26,9 @@ export function Calendar({ markedDates, onDayPress }: CalendarProps) {
     const theme = useTheme()
     return (
         <CustomCalendar
-            markingType='period'
+            markingType="period"
+            minDate={new Date().toString()}
             markedDate={markedDates}
-            minDate={new Date()}
             onDayPress={onDayPress}
             firstDay={1}
             headerStyle={{
