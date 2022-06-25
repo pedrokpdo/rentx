@@ -11,6 +11,10 @@ import { useNavigation } from '@react-navigation/native'
 import { generateInterval } from '../../components/Calendar/generateInterval';
 
 
+interface Props {
+    onDayPress: () => void
+}
+
 export function Scheduling() {
     const [lastSelectedDate, setLastSelectedDate] = useState<DayProps>({} as DayProps)
     const [markedDates, setMarkedDates] = useState({})

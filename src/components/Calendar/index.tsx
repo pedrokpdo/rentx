@@ -20,6 +20,15 @@ interface DayProps {
     timestamp: number;
 }
 
+interface MarkedDateProps {
+    [date: string]: {
+        color: string;
+        textColor: string;
+        disabled?:boolean;
+        disableTouchEvent?: boolean;
+    },
+}
+
 
 
 export function Calendar({ markedDates, onDayPress }: CalendarProps) {
@@ -28,7 +37,7 @@ export function Calendar({ markedDates, onDayPress }: CalendarProps) {
         <CustomCalendar
             markingType="period"
             minDate={new Date().toString()}
-            markedDate={markedDates}
+            markedDates={markedDates}
             onDayPress={onDayPress}
             firstDay={1}
             headerStyle={{
