@@ -1,5 +1,5 @@
 import React from 'react';
-import { Acessory } from '../../components/Acessory';
+import { Accessory } from '../../components/Accessory';
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
 import SpeedSvg from '../../assets/speed.svg'
@@ -46,7 +46,7 @@ export function CarDetails() {
                 <Acessories>
                     {
                     car.accessories.map(accessory => (
-                        <Acessory name={accessory.name} icon={getAccessory(accessory.type)} key={accessory.type}/>
+                        <Accessory name={accessory.name} icon={getAccessory(accessory.type)} key={accessory.type}/>
                     ))
                     }
                 </Acessories>

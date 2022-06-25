@@ -9,8 +9,8 @@ import { Button } from '../../components/Button';
 import { Calendar, DayProps } from '../../components/Calendar';
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { generateInterval } from '../../components/Calendar/generateInterval';
-import {format} from 'date-fns'
-import {getPlatformDate} from '../../utils/getPlatformDate'
+import { format } from 'date-fns'
+import { getPlatformDate } from '../../utils/getPlatformDate'
 
 interface RentalPeriod {
     startFormated: string;
@@ -27,13 +27,13 @@ export function Scheduling() {
     const route = useRoute()
     const { car } = route.params
     function handleConfirmRental() {
-        if(!rentalPeriod.startFormated || !rentalPeriod.endFormated){
+        if (!rentalPeriod.startFormated || !rentalPeriod.endFormated) {
             Alert.alert('selecione o periodo')
-        }else{
-            navigation.navigate('SchedulingDetails'), {
+        } else {
+            navigation.navigate('SchedulingDetails', {
                 car,
                 dates: Object.keys(markedDates)
-            }
+            })
         }
     }
     function handleBack() {
