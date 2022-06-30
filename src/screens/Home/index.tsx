@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StatusBar } from 'react-native';
+import { BackHandler, StatusBar } from 'react-native';
 import { CarList, Container, Header, HeaderContent, MyCarsButton, TotalCars } from './styles';
 import Logo from '../../assets/logo.svg'
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -27,6 +27,12 @@ export function Home() {
         fetchCars()
     }, [])
 
+    useEffect(() => {
+        BackHandler.addEventListener('hardwareBackPress', () => {
+            return true
+        })
+    })
+
     function handleCarDetails(car): any {
         navigation.navigate('CarDetails', {car})
     }
@@ -41,9 +47,12 @@ export function Home() {
             <Header>
                 <HeaderContent>
                     <Logo width={RFValue(108)} height={RFValue(12)} />
+                    {
+                        !loading &&
                     <TotalCars>
                         Total de {cars.length} carros
                     </TotalCars>
+                    }
                 </HeaderContent>
             </Header>
             {loading ? <Load /> :

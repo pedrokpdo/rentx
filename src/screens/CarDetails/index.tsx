@@ -2,7 +2,6 @@ import React from 'react';
 import { Accessory } from '../../components/Accessory';
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
-import SpeedSvg from '../../assets/speed.svg'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { getAccessory } from '../../utils/getAccessory'
 import Animated, { Extrapolate, interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
