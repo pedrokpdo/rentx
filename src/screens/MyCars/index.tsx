@@ -6,6 +6,7 @@ import { useTheme } from 'styled-components'
 import { BackButton } from '../../components/BackButton'
 import { CardCar } from '../../components/CardCar'
 import { Load } from '../../components/Load'
+import { LoadAnimation } from '../../components/LoadAnimation'
 import { api } from '../../services/api'
 import { Container, Content, Header, SubTitle, Title, Appointments, AppointmentsQuatity, AppointmentsTitle, CarWrapper, CarFooter, CarFooterTitle, CarFooterPeriod, CarFooterDate } from './styles'
 
@@ -50,7 +51,7 @@ export function MyCars() {
                 </Title>
                 <SubTitle>Conforto, segurança e praticidade</SubTitle>
             </Header>
-            {loading ? <Load /> :
+            {loading ? <LoadAnimation /> :
                 <Content>
                     <Appointments>
                         <AppointmentsTitle>Agendamentos Feitos</AppointmentsTitle>

@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native'
 import { api } from '../../services/api'
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
+import { LoadAnimation } from '../../components/LoadAnimation';
 
 
 export function Home() {
@@ -34,7 +35,7 @@ export function Home() {
     })
 
     function handleCarDetails(car): any {
-        navigation.navigate('CarDetails', {car})
+        navigation.navigate('CarDetails', { car })
     }
 
     function handleOpenMyCars(car): any {
@@ -49,13 +50,13 @@ export function Home() {
                     <Logo width={RFValue(108)} height={RFValue(12)} />
                     {
                         !loading &&
-                    <TotalCars>
-                        Total de {cars.length} carros
-                    </TotalCars>
+                        <TotalCars>
+                            Total de {cars.length} carros
+                        </TotalCars>
                     }
                 </HeaderContent>
             </Header>
-            {loading ? <Load /> :
+            {loading ? <LoadAnimation /> :
                 <CarList
                     data={cars}
                     keyExtractor={item => (item.id)}
@@ -67,7 +68,7 @@ export function Home() {
 
             }
             <MyCarsButton onPress={handleOpenMyCars}>
-                <Ionicons name='ios-car-sport' size={32} color={theme.colors.shape}/>
+                <Ionicons name='ios-car-sport' size={32} color={theme.colors.shape} />
             </MyCarsButton>
         </Container>
     )
