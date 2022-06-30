@@ -11,10 +11,12 @@ import Animated, { Extrapolate, interpolate, useAnimatedScrollHandler, useAnimat
 import { CarImages, Container, Header, Details, Description, Brand, Name, Rent, Period, Price, About, Acessories, Footer } from './styles';
 import { Button } from '../../components/Button';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
+import { useTheme } from 'styled-components';
 
 
 export function CarDetails() {
+    const theme = useTheme()
     const navigation = useNavigation()
     const route = useRoute()
     const { car } = route.params
@@ -34,6 +36,17 @@ export function CarDetails() {
         }
     })
 
+    const sliderCarsStyleAnimation = useAnimatedStyle(() => {
+        return {
+            opacity: interpolate(
+                scrollY.value,
+                [0, 150],
+                [1, 0],
+                Extrapolate.CLAMP
+            )
+        }
+    })
+
     function handleConfirmRental() {
         navigation.navigate('Scheduling', {
             car
@@ -45,22 +58,30 @@ export function CarDetails() {
     return (
         <Container>
             <StatusBar barStyle='dark-content' translucent backgroundColor='transparent' />
-            <Animated.View style={[headerStyleAnimation]}>
+            <Animated.View style={[
+                headerStyleAnimation,
+                styles.header,
+                { backgroundColor: theme.colors.background_secondary }
+            ]}>
                 <Header>
                     <BackButton onPress={handleBack} />
                 </Header>
-                <CarImages>
-                    <ImageSlider imagesUrl={car.photos} />
-                </CarImages>
+                <Animated.View style={sliderCarsStyleAnimation}>
+                    <CarImages>
+                        <ImageSlider imagesUrl={car.photos} />
+
+                    </CarImages>
+                </Animated.View>
 
             </Animated.View>
             <Animated.ScrollView
                 contentContainerStyle={{
                     paddingHorizontal: 24,
-                    paddingTop: getStatusBarHeight(),
+                    paddingTop: getStatusBarHeight() + 160,
                 }}
                 onScroll={scrollHandler}
                 showsVerticalScrollIndicator={false}
+                scrollEventThrottle={16}
             >
                 <Details>
                     <Description>
@@ -81,9 +102,6 @@ export function CarDetails() {
                 </Acessories>
                 <About>
                     {car.about}
-                    {car.about}
-                    {car.about}
-                    {car.about}
                 </About>
             </Animated.ScrollView>
             <Footer>
@@ -92,3 +110,14 @@ export function CarDetails() {
         </Container>
     )
 }
+
+const styles = StyleSheet.create({
+    header: {
+        position: 'absolute',
+        overflow: 'hidden',
+        zIndex: 1
+    },
+    back: {
+        marginTop: 24
+    }
+})
