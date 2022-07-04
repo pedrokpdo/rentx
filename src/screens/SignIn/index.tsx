@@ -60,7 +60,7 @@ export function SignIn() {
                             keyboardType='email-address'
                             autoCapitalize='none'
                             autoCorrect={false}
-                            setEmail={setEmail}
+                            onChangeText={setEmail}
                             value={email}
                         />
                         <PasswordInput

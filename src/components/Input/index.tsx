@@ -8,10 +8,10 @@ import { Container, IconContainer, InputText } from './styles'
 interface InputProps extends TextInputProps {
     iconName: React.ComponentProps<typeof Feather>['name'];
     value?: string;
-    setEmail: any;
+    onChangeText: any;
 }
 
-export function Input({ iconName, placeholder, value, setEmail }: InputProps) {
+export function Input({ iconName, placeholder, value, onChangeText }: InputProps) {
     const [isFocused, setIsFocused] = useState(false)
     const [isFilled, setIsFilled] = useState(false)
     const theme = useTheme()
@@ -40,7 +40,7 @@ export function Input({ iconName, placeholder, value, setEmail }: InputProps) {
                 placeholder={placeholder}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
-                onChangeText={setEmail}
+                onChangeText={onChangeText}
             />
         </Container>
     )
