@@ -6,10 +6,11 @@ import { useTheme } from 'styled-components'
 import { Input } from '../../components/Input'
 import { PasswordInput } from '../../components/PasswordInput'
 import * as Yup from 'yup'
+import { useNavigation } from '@react-navigation/native'
 
 
 export function SignIn() {
-
+    const navigation = useNavigation()
     const theme = useTheme();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -38,6 +39,9 @@ export function SignIn() {
 
     }
 
+    function handleNewAccount() {
+        navigation.navigate('StepOne')
+    }
 
     return (
         <KeyboardAvoidingView behavior='position' enabled>
@@ -68,7 +72,7 @@ export function SignIn() {
                     </Form>
                     <Footer>
                         <Button title='login' onPress={handleSignIn} />
-                        <Button title='Criar conta Gratuita' onPress={handleSignIn} colorText={theme.colors.shape_dark} color={theme.colors.background_secondary} />
+                        <Button title='Criar conta Gratuita' onPress={handleNewAccount} colorText={theme.colors.shape_dark} color={theme.colors.background_secondary} />
                     </Footer>
                 </Container>
             </TouchableWithoutFeedback >
