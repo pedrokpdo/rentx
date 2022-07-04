@@ -32,8 +32,8 @@ export function PasswordInput({ iconName, placeholder, value }: InputProps) {
     }
 
     return (
-        <Container isFocused={isFocused}>
-            <IconContainer>
+        <Container>
+            <IconContainer isFocused={isFocused}>
                 <Feather
                     name={iconName}
                     size={24}
@@ -42,13 +42,16 @@ export function PasswordInput({ iconName, placeholder, value }: InputProps) {
                 />
             </IconContainer>
             <InputText
+                isFocused={isFocused}
                 placeholder={placeholder}
                 secureTextEntry={isPasswordVisible}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
             />
             <ChangePasswordVisibility onPress={handlePasswordVisibilityChange}>
-                <IconContainer>
+                <IconContainer
+                    isFocused={isFocused}
+                >
                     <Feather
                         name={isPasswordVisible ? 'eye' : 'eye-off'}
                         size={24}

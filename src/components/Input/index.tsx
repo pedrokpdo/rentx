@@ -19,25 +19,26 @@ export function Input({ iconName, placeholder, value }: InputProps) {
         setIsFocused(true)
     }
 
-    
+
     function handleInputBlur() {
         setIsFocused(false)
         setIsFilled(!!value)
     }
 
     return (
-        <Container isFocused={isFocused}>
-            <IconContainer>
+        <Container>
+            <IconContainer isFocused={isFocused}>
                 <Feather
-                 name={iconName}
-                  size={24}
-                   color={(isFocused || isFilled) ? theme.colors.main : theme.colors.text_detail}
-                    />
+                    name={iconName}
+                    size={24}
+                    color={(isFocused || isFilled) ? theme.colors.main : theme.colors.text_detail}
+                />
             </IconContainer>
-            <InputText 
-            placeholder={placeholder}
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
+            <InputText
+                isFocused={isFocused}
+                placeholder={placeholder}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
             />
         </Container>
     )
