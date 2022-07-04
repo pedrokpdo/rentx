@@ -12,6 +12,10 @@ export function StepOne() {
     function handleBack() {
         navigation.goBack()
     }
+
+    function handleNextStep() {
+        navigation.navigate('StepTwo')
+    }
     return (
         <KeyboardAvoidingView behavior='position' enabled>
                 <Container>
@@ -30,20 +34,24 @@ export function StepOne() {
                             iconName='user'
                             placeholder='Nome'
                             onChangeText={() => { }}
+                            
                         />
                         <Input
                             iconName='mail'
                             placeholder='E-mail'
                             onChangeText={() => { }}
+                            keyboardType='email-address'
                         />
                         <Input
                             iconName='credit-card'
                             placeholder='CNH'
                             onChangeText={() => { }}
+                            keyboardType='numeric'
                         />
                     </Form>
                     <Button
                         title='Próximo'
+                        onPress={handleNextStep}
                     />
                 </Container>
         </KeyboardAvoidingView>
