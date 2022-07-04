@@ -18,7 +18,7 @@ export function SignIn() {
 
             </Header>
             <Form>
-                <Input iconName='mail'/>
+                <Input iconName='mail' placeholder='E-mail' keyboardType='email-address' autoCapitalize='none' autoCorrect={false}/>
             </Form>
             <Footer>
                 <Button title='login' onPress={() => { }} />
