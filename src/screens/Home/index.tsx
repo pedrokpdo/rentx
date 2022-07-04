@@ -4,7 +4,6 @@ import { CarList, Container, Header, HeaderContent, MyCarsButton, TotalCars } fr
 import Logo from '../../assets/logo.svg'
 import { RFValue } from 'react-native-responsive-fontsize';
 import { CardCar } from '../../components/CardCar';
-import { Load } from '../../components/Load';
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../services/api'
 import { Ionicons } from '@expo/vector-icons';
@@ -29,6 +28,7 @@ export function Home() {
     }, [])
 
     useEffect(() => {
+    
         BackHandler.addEventListener('hardwareBackPress', () => {
             return true
         })

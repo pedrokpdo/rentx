@@ -7,6 +7,9 @@ interface ButtonProps extends RectButtonProps {
     color: string;
 }
 
+interface ButtonPropts extends RectButtonProps {
+    colorText?: string;
+}
 export const Container = styled.TouchableOpacity<ButtonProps>`
     width: 100%;
     height: 50px;
@@ -15,10 +18,11 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
     justify-content:center;
    
     background-color: ${({ color, theme }) => color ? color : theme.colors.main};
+    margin-bottom: 8px;
 `
 
-export const Title = styled.Text`
+export const Title = styled.Text<ButtonPropts>`
     font-family: ${({ theme }) => theme.fonts.primary_500};
     font-size:  ${RFValue(15)}px;
-    color: ${({ theme }) => theme.colors.shape};
+    color: ${({ theme, colorText }) => colorText ? colorText : theme.colors.shape};
 `

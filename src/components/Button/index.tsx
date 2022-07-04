@@ -6,12 +6,13 @@ interface Props {
     title: string;
     color?: string;
     onPress: any;
+    colorText?: any;
 }
 
-export function Button({ title, color, onPress }: Props) {
+export function Button({ title, color, onPress, colorText }: Props) {
     return (
         <Container onPress={onPress} color={color}>
-            <Title>{title}</Title>
+            <Title colorText={colorText}>{title}</Title>
         </Container>
     )
 }
