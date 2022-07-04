@@ -39,6 +39,11 @@ export function StepTwo() {
         if(password != passwordConfirm) {
             return Alert.alert('As senhas não sao iguais.')
         }
+        navigation.navigate('Confirmation', {
+            nextScreenRoute: 'SignIn',
+            title: 'Conta criada',
+            message: `Agora é só fazer login\ne aproveitar`
+        })
     }
     return (
         <KeyboardAvoidingView behavior='position' enabled>
