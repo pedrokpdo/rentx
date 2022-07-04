@@ -66,7 +66,7 @@ export function SignIn() {
                         <PasswordInput
                             iconName='lock'
                             placeholder='Senha'
-                            setPassword={setPassword}
+                            onChangeText={setPassword}
                             value={password}
                         />
                     </Form>

@@ -9,10 +9,10 @@ import { Container, IconContainer, InputText } from './styles'
 interface InputProps extends TextInputProps {
     iconName: React.ComponentProps<typeof Feather>['name']
     value?: string;
-    setPassword: any;
+    onChangeText: any;
 }
 
-export function PasswordInput({ iconName, placeholder, value, setPassword }: InputProps) {
+export function PasswordInput({ iconName, placeholder, value, onChangeText }: InputProps) {
     const [isPasswordVisible, setIsPasswordVisible] = useState(true)
     const [isFocused, setIsFocused] = useState(false)
     const [isFilled, setIsFilled] = useState(false)
@@ -48,7 +48,7 @@ export function PasswordInput({ iconName, placeholder, value, setPassword }: Inp
                 secureTextEntry={isPasswordVisible}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
-                onChangeText={setPassword}
+                onChangeText={onChangeText}
             />
             <ChangePasswordVisibility onPress={handlePasswordVisibilityChange}>
                 <IconContainer
