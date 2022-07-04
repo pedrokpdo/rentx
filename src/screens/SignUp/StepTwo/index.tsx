@@ -7,6 +7,7 @@ import { Bullet } from '../../../components/Bullet'
 import { Button } from '../../../components/Button'
 import { Input } from '../../../components/Input'
 import { PasswordInput } from '../../../components/PasswordInput'
+import { api } from '../../../services/api'
 import { Container, Form, FormTitle, Header, Steps, SubTitle, Title } from './styles'
 
 interface Params {
@@ -25,25 +26,39 @@ export function StepTwo() {
     const theme = useTheme()
     const route = useRoute()
 
-    const {user} = route.params as Params;
+    const { user } = route.params as Params;
 
     const navigation = useNavigation()
     function handleBack() {
         navigation.goBack()
     }
 
-    function handleRegister() {
-        if(!password || !passwordConfirm) {
+    async function handleRegister() {
+        if (!password || !passwordConfirm) {
             return Alert.alert('Informe a senha e a confirmação.')
         }
-        if(password != passwordConfirm) {
+        if (password != passwordConfirm) {
             return Alert.alert('As senhas não sao iguais.')
         }
-        navigation.navigate('Confirmation', {
-            nextScreenRoute: 'SignIn',
-            title: 'Conta criada',
-            message: `Agora é só fazer login\ne aproveitar`
+
+        await api.post('/users', {
+            name: user.name,
+            email: user.email,
+            password,
+            driver_license: user.driverLicense,
         })
+            .then(() => {
+                navigation.navigate('Confirmation', {
+                    nextScreenRoute: 'SignIn',
+                    title: 'Conta criada',
+                    message: `Agora é só fazer login\ne aproveitar`
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+                
+                Alert.alert('Opa', 'Não foi possível cadastrar')
+            });
     }
     return (
         <KeyboardAvoidingView behavior='position' enabled>
@@ -64,7 +79,7 @@ export function StepTwo() {
                         placeholder='Senha'
                         onChangeText={setPassword}
                         value={password}
-                        
+
                     />
                     <PasswordInput
                         iconName='lock'
@@ -77,7 +92,7 @@ export function StepTwo() {
                     title='Cadastrar'
                     color={theme.colors.success}
                     onPress={handleRegister}
-                    
+
                 />
             </Container>
         </KeyboardAvoidingView>
