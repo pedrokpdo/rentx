@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native'
 import { Button } from '../../components/Button'
 import { useTheme } from 'styled-components'
 import { Input } from '../../components/Input'
+import { PasswordInput } from '../../components/PasswordInput'
 
 
 export function SignIn() {
@@ -19,6 +20,7 @@ export function SignIn() {
             </Header>
             <Form>
                 <Input iconName='mail' placeholder='E-mail' keyboardType='email-address' autoCapitalize='none' autoCorrect={false}/>
+                <PasswordInput iconName='lock' placeholder='Senha'/>
             </Form>
             <Footer>
                 <Button title='login' onPress={() => { }} />
