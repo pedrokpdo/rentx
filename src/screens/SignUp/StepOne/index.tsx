@@ -7,13 +7,18 @@ import { Button } from '../../../components/Button'
 import { Input } from '../../../components/Input'
 import { Container, Form, FormTitle, Header, Steps, SubTitle, Title } from './styles'
 import * as Yup from 'yup'
+import { useAuth } from '../../../hooks/auth'
 
 
 export function StepOne() {
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [driverLicense, setDriverLicense] = useState('')
+    
     const navigation = useNavigation()
+    const {user} = useAuth()
+    console.log('Usuário au' ,user)
+    
     function handleBack() {
         navigation.goBack()
     }
