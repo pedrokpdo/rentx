@@ -12,13 +12,17 @@ import { Button } from '../../components/Button';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { StatusBar, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components';
+import { CarDTO } from '../../dtos/CarDTO';
 
+interface Params {
+    car: CarDTO;
+}
 
 export function CarDetails() {
     const theme = useTheme()
     const navigation = useNavigation()
     const route = useRoute()
-    const { car } = route.params
+    const { car } = route.params as Params;
     const scrollY = useSharedValue(0)
     const scrollHandler = useAnimatedScrollHandler(event => {
         scrollY.value = event.contentOffset.y
@@ -88,8 +92,8 @@ export function CarDetails() {
                         <Name>{car.name}</Name>
                     </Description>
                     <Rent>
-                        <Period>{car.rent.period}</Period>
-                        <Price>{`R$ ${car.rent.price}`}</Price>
+                        <Period>{car.period}</Period>
+                        <Price>{`R$ ${car.price}`}</Price>
                     </Rent>
                 </Details>
                 <Acessories>

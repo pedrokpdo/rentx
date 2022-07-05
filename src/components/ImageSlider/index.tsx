@@ -4,7 +4,10 @@ import { FlatList, ViewToken } from 'react-native';
 import { CarImage, CarImageWrapper, Container, ImageIndex, ImageIndexes } from './styles';
 
 interface Props {
-    imagesUrl: string[];
+    imagesUrl: {
+        id: string;
+        photo: string;
+    }[];
 }
 
 interface ChangeImageProps {
@@ -24,10 +27,10 @@ export function ImageSlider({ imagesUrl }: Props) {
         <Container>
             <ImageIndexes>
                 {
-                    imagesUrl.map((_, index) => (
+                    imagesUrl.map((item, index) => (
                         <ImageIndex
                             active={index === imageIndex}
-                            key={String(index)}
+                            key={String(item.id)}
                         />
                     ))
                 }
@@ -35,10 +38,10 @@ export function ImageSlider({ imagesUrl }: Props) {
             <FlatList
                 data={imagesUrl}
                 onViewableItemsChanged={indexChanged.current}
-                keyExtractor={key => key}
+                keyExtractor={item => item.id}
                 renderItem={({ item }) => (
                     <CarImageWrapper>
-                        <CarImage source={{ uri: item }} resizeMode='contain' />
+                        <CarImage source={{ uri: item.photo }} resizeMode='contain' />
                     </CarImageWrapper>
                 )}
                 horizontal
